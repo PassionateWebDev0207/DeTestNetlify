@@ -1,0 +1,271 @@
+<section class="dashboard">
+  <section class="dashboard-header">
+    <nz-header>
+      <div class="logo"><img src="../../assets/images/brand.png"></div>
+      <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" style="line-height: 56px">
+        <li nz-menu-item>DASHBOARD</li>
+        <li nz-menu-item><nz-badge [nzDot]="true">PROJECT&nbsp;&nbsp;</nz-badge></li>
+        <li nz-menu-item><nz-badge [nzDot]="true">TOOLSHELF&nbsp;&nbsp;</nz-badge></li>
+        <li nz-menu-item>NETWORK</li>
+      </ul>
+      <div class="settings">
+        <nz-badge [nzCount]="5" 
+        [nzStyle]="{ backgroundColor: '#4C84FF', width: '16px', height: '16px', padding: '0', minWidth: '16px', lineHeight: '16px'}">
+          <img id="envelope" src="../../assets/images/envelope.svg" alt="envelope" />
+        </nz-badge>
+        <i class="anticon anticon-message" style="transform: scaleX(-1)"></i>
+        <i class="anticon anticon-setting"></i>
+        <img src="../../assets/images/user.png" alt="user" />
+      </div>
+      <div class="settings-mobile">
+        <div>
+          <nz-dropdown [nzPlacement]="'bottomRight'">
+            <a nz-dropdown><img id="user" src="../../assets/images/user.png" alt="user" /></a>
+            <ul nz-menu nzSelectable>
+              <li nz-menu-item>
+                <a>
+                  <nz-badge [nzCount]="5" 
+                  [nzStyle]="{ backgroundColor: '#4C84FF', width: '16px', height: '16px', padding: '0', minWidth: '16px', lineHeight: '16px'}">
+                    <img id="envelope" src="../../assets/images/envelope.svg" alt="envelope" style="width: 20px; height: 20px;" />
+                  </nz-badge>
+                  Events
+                </a>
+              </li>
+              <li nz-menu-item>
+                <a>
+                  <i class="anticon anticon-message" style="transform: scaleX(-1); font-size: 20px"></i> Message
+                </a>
+              </li>
+              <li nz-menu-item>
+                <a>
+                  <i class="anticon anticon-setting" style="font-size: 20px"></i> Settings
+                </a>
+              </li>
+            </ul>          
+          </nz-dropdown>
+          <nz-dropdown [nzPlacement]="'bottomRight'">
+            <a nz-dropdown><i class="anticon anticon-ellipsis"></i></a>
+            <ul nz-menu nzSelectable>
+              <li nz-menu-item>
+                <a>DASHBOARD</a>
+              </li>
+              <li nz-menu-item>
+                <a><nz-badge [nzDot]="true">PROJECT&nbsp;&nbsp;</nz-badge></a>
+              </li>
+              <li nz-menu-item>
+                <a><nz-badge [nzDot]="true">TOOLSHELF&nbsp;&nbsp;</nz-badge></a>
+              </li>
+              <li nz-menu-item>
+                <a>NETWORK</a>
+              </li>
+            </ul>          
+          </nz-dropdown>
+        </div>
+      </div>
+    </nz-header>
+  </section>
+  <section class="dashboard-body">
+    <div class="dashboard-activity">
+      <h1>Activity</h1>
+      <div class="list-group">
+        <div class="list-group-item">
+          <i class="anticon anticon-search"></i>
+          <span>&nbsp;&nbsp;Search</span> 
+        </div>
+        <div class="list-group-item active-item">
+          <div class="event-section">
+            <div class="event-description">
+              <div><img src="../../assets/images/user2.png" alt="user2"/></div>
+              <div>
+                <h2><span id="name">John R.Doe</span> Uploaded Photos</h2>
+                <div>
+                  <p>365 Boyer Circle, Lafayette</p>
+                  <p>#DE80090</p>
+                </div>
+                <span>Yesterday at 8:30am</span>
+              </div>
+            </div>
+            <div class="uploaded-imgs">
+              <div></div>
+              <div>
+                <img *ngFor="let uploadedImg of uploadedImgs" [src]="uploadedImg" />
+              </div>
+              <div></div>
+              <div><a>View All Photos</a></div>
+            </div>
+          </div>
+          <div class="menu-plus">
+            <nz-popover [nzPlacement]="'bottom'" [nzTrigger]="'click'">
+              <div class="plus-btn" nz-popover><a href="#"><i class="anticon anticon-plus-circle-o" id="plus"></i></a></div>
+              <ng-template #nzTemplate>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Review</div>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Message</div>
+                <div style="cursor: pointer"><i class="anticon anticon-table"></i> Reschedule</div>
+              </ng-template>
+            </nz-popover>
+          </div>
+        </div>
+        <div class="list-group-item active-item">
+          <div class="event-section">
+            <div class="event-description">
+              <div><img src="../../assets/images/alert.svg" alt="alert"/></div>
+              <div>
+                <h2>Survey Due <span style="color: #FF5560">Tomorrow</span></h2>
+                <div>
+                  <p>365 Boyer Circle, Lafayette</p>
+                  <p>#DE80090</p>
+                </div>
+                <span>Today at 10:22am</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu-plus">
+            <nz-popover [nzPlacement]="'bottom'" [nzTrigger]="'click'">
+              <div class="plus-btn" nz-popover><a href="#"><i class="anticon anticon-plus-circle-o" id="plus"></i></a></div>
+              <ng-template #nzTemplate>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Review</div>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Message</div>
+                <div style="cursor: pointer"><i class="anticon anticon-table"></i> Reschedule</div>
+              </ng-template>
+            </nz-popover>
+          </div>
+        </div>
+        <div class="list-group-item active-item">
+          <div class="event-section">
+            <div class="event-description">
+              <div><img src="../../assets/images/user3.png" alt="user3"/></div>
+              <div>
+                <h2><span id="name">Layla R. Hue</span> Scheduled Site Visit November 10, 2017, 10: 15am</h2>
+                <div>
+                  <p>365 Boyer Circle, Lafayette</p>
+                  <p>#DE80090</p>
+                </div>
+                <span>Yesterday at 8:30am</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu-plus">
+            <nz-popover [nzPlacement]="'bottom'" [nzTrigger]="'click'">
+              <div class="plus-btn" nz-popover><a href="#"><i class="anticon anticon-plus-circle-o" id="plus"></i></a></div>
+              <ng-template #nzTemplate>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Review</div>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Message</div>
+                <div style="cursor: pointer"><i class="anticon anticon-table"></i> Reschedule</div>
+              </ng-template>
+            </nz-popover>
+          </div>
+        </div>
+        <div class="list-group-item active-item">
+          <div class="event-section">
+            <div class="event-description">
+              <div>
+                <div style="width: 40px; height: 40px; background-color: #00CEC1; border-radius: 50%">
+                  <img src="../../assets/images/Receipt Approved.svg" id="invoice" alt="invoice"/>
+                </div>
+              </div>
+              <div>
+                <h2>Deposit Invoice Paid</h2>
+                <div>
+                  <p>$2,500.00</p>
+                  <p>#DE70923</p>
+                </div>
+                <span>Yesterday at 6:00am</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu-plus">
+            <nz-popover [nzPlacement]="'bottom'" [nzTrigger]="'click'">
+              <div class="plus-btn" nz-popover><a href="#"><i class="anticon anticon-plus-circle-o" id="plus"></i></a></div>
+              <ng-template #nzTemplate>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Review</div>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Message</div>
+                <div style="cursor: pointer"><i class="anticon anticon-table"></i> Reschedule</div>
+              </ng-template>
+            </nz-popover>
+          </div>      
+        </div>
+        <div class="list-group-item active-item">
+          <div class="event-section">
+            <div class="event-description">
+              <div><img src="../../assets/images/contract.svg" alt="contract"/></div>
+              <div>
+                <h2>Contract Signed</h2>
+                <div>
+                  <p>200 simpson DR., Berkeley</p>
+                  <p>#DE70923</p>
+                </div>
+                <span>September 20, 2017 at 2:00pm</span>
+              </div>
+            </div>
+            <div class="event-contract">
+              <div></div>
+              <div>
+                <div class="view-contract">
+                  <p><i class="anticon anticon-paper-clip" style="transform: rotate(-45deg)"></i><a>View</a></p>
+                  <p><i class="anticon anticon-paper-clip"></i><a>Contract</a></p>
+                </div>
+                <div class="sign-contract">
+                  <p><i class="anticon anticon-edit"></i><a>Sign</a></p>
+                  <p><i class="anticon anticon-edit"></i><a>Contract</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-plus">
+            <nz-popover [nzPlacement]="'bottom'" [nzTrigger]="'click'">
+              <div class="plus-btn" nz-popover><a href="#"><i class="anticon anticon-plus-circle-o" id="plus"></i></a></div>
+              <ng-template #nzTemplate>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Review</div>
+                <div style="cursor: pointer"><i class="anticon anticon-message" style="transform: scaleX(-1)"></i> Message</div>
+                <div style="cursor: pointer"><i class="anticon anticon-table"></i> Reschedule</div>
+              </ng-template>
+            </nz-popover>
+          </div>      
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-homebuilder">
+      <h1>Hombuilder</h1>
+      <div class="list-group">
+        <div class="list-group-item">
+          <button nz-button nzType="primary" nzGhost>Add items</button>
+          <span>Search</span>
+          <div style="display: flex; justify-content: center; align-items: center;"><i class="anticon anticon-down"></i></div>
+        </div>
+        <div class="list-group-item" *ngFor="let homebuilderItem of homebuilderItems">
+          <ng-container *ngIf="!homebuilderItem.todo === false">
+            <div class="item-info">
+              <div>
+                <i *ngIf="homebuilderItem.completed === false; else complete" class="anticon anticon-check-circle-o unchecked"></i>
+                <ng-template #complete>
+                  <i class="anticon anticon-check-circle-o checked"></i>
+                </ng-template>
+              </div>
+              <div>
+                <h1>{{homebuilderItem.todo}}</h1>
+                <p>{{homebuilderItem.desc}}</p>
+              </div>
+            </div>
+            <div class="item-status">
+              <ng-container *ngIf="homebuilderItem.state === 'high-price'">
+                <p id="red">{{homebuilderItem.info}}</p>
+                <button id="red-btn">High Price</button>
+              </ng-container>
+              <ng-container *ngIf="homebuilderItem.state === 'medium'">
+                <p>{{homebuilderItem.info}}</p>
+                <button id="yellow-btn">Medium</button>
+              </ng-container>
+              <ng-container *ngIf="homebuilderItem.state === 'final'">
+                <p>{{homebuilderItem.info}}</p>
+                <button id="green-btn">Final</button>
+              </ng-container>
+            </div>
+            <div class="item-user">
+              <img src="../../assets/images/user3.png" alt="user3" />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
