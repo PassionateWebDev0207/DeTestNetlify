@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const API_URL = 'https://704b2ff9.ngrok.io';
 
-const API_URL = 'http://22e85603.ngrok.io';
 @Injectable()
 export class TodoService {
 
