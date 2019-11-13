@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,36 +15,27 @@ export class DashboardComponent implements OnInit {
     "../../assets/images/up4.png",
   ];
 
-  homebuilderItems = [
-    {
-      "id": 1,
-      "todo": "Buy Windows",
-      "desc": "#DE 8009 Description lorem ipsum lorem ipsum",
-      "info": "ABC",
-      "completed": false,
-      "state": "high-price"
-    },
-    {
-      "id": 2,
-      "todo": "Find Contractors",
-      "desc": "#DE 2100 Description lorem ipsum lorem ipsum",
-      "info": "Tomorrow",
-      "completed": false,
-      "state": "medium"
-    },
-    {
-      "id": 3,
-      "todo": "Prints of plans",
-      "desc": "#DE 8009 Description lorem ipsum lorem ipsum",
-      "info": "5 copies",
-      "completed": true,
-      "state": "final"
-    }, {}, {}, {}, {}, {}, {}, {}
-  ];
+  indexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  constructor() { }
+  homebuilderItems = new Array(10);
+
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.homebuilderItems.fill(null);
+    this.todoService.getToDoList().subscribe(
+      data => {
+        this.homebuilderItems = [...data, ... new Array(10 - data.length)];
+      });
   }
 
+  CompleteEvent(id: Number, completed: Boolean) {
+    this.todoService.updateToDoItem(id, completed).subscribe(
+      val => {
+        this.todoService.getToDoList().subscribe(
+          data => {
+            this.homebuilderItems = [...data, ... new Array(10 - data.length)];
+          });
+      });
+  }
 }

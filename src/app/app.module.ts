@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { TodoService } from './todo.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     AppRoutingModule,
     AngularFontAwesomeModule,
     NgZorroAntdModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

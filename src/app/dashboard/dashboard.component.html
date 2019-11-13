@@ -233,12 +233,12 @@
           <div style="display: flex; justify-content: center; align-items: center;"><i class="anticon anticon-down"></i></div>
         </div>
         <div class="list-group-item" *ngFor="let homebuilderItem of homebuilderItems">
-          <ng-container *ngIf="!homebuilderItem.todo === false">
+          <ng-container *ngIf="!homebuilderItem?.todo === false">
             <div class="item-info">
               <div>
-                <i *ngIf="homebuilderItem.completed === false; else complete" class="anticon anticon-check-circle-o unchecked"></i>
+                <i *ngIf="homebuilderItem.completed === false; else complete" class="anticon anticon-check-circle-o unchecked" (click)="CompleteEvent(homebuilderItem.id, true)"></i>
                 <ng-template #complete>
-                  <i class="anticon anticon-check-circle-o checked"></i>
+                  <i class="anticon anticon-check-circle-o checked" (click)="CompleteEvent(homebuilderItem.id, false)"></i>
                 </ng-template>
               </div>
               <div>
